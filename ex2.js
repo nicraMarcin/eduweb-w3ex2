@@ -11,13 +11,14 @@ function Person(firstName, lastName) {
 }
 
 Person.prototype.flirt = function() {
+	var self = this;
 
     this.interval = setInterval(function() {
+    	
+        console.log("Cześć, nazywam się " + self.firstName + " " + self.lastName + "! Masz ochotę na drinka?");
 
-        console.log("Cześć, nazywam się " + this.firstName + " " + this.lastName + "! Masz ochotę na drinka?");
-
-        if(++this.attempts === 10) {
-            clearInterval(this.interval);
+        if(++self.attempts === 10) {
+            clearInterval(self.interval);
         }
 
     }, 1000);
